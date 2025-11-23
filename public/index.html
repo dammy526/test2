@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>M.E.G. Bot 控制面板</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">M.E.G</div>
+        <div>
+          <h1>M.E.G. Bot 控制面板</h1>
+          <p>管理你的 Discord Bot 設定</p>
+        </div>
+      </div>
+      <div class="header-badge">軍事 HUD</div>
+    </header>
+
+    <div class="status-panel">
+      <div class="status-item">
+        <div>
+          <div class="status-label">Bot 狀態</div>
+          <div class="status-value" id="bot-status">離線</div>
+        </div>
+      </div>
+      <div class="status-item">
+        <div>
+          <div class="status-label">上線時間</div>
+          <div class="status-value" id="bot-uptime">讀取中...</div>
+        </div>
+      </div>
+      <div class="status-item">
+        <div>
+          <div class="status-label">伺服器數量</div>
+          <div class="status-value" id="guild-count">0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-button active" data-tab="ep">EP 系統</button>
+      <button class="tab-button" data-tab="manage">管理功能</button>
+      <button class="tab-button" data-tab="auto">自動化</button>
+      <button class="tab-button" data-tab="logs">日誌設定</button>
+    </div>
+
+    <div id="ep" class="tab-content active">
+      <div class="setting-group">
+        <label>選擇伺服器</label>
+        <select id="guild-select"></select>
+      </div>
+
+      <div id="guild-settings" class="setting-group" style="display:none">
+        <label>EP 增加指令權限</label>
+        <select id="ep-role">
+          <option value="admin">僅管理員</option>
+          <option value="mods">管理員與版主</option>
+          <option value="everyone">所有人</option>
+        </select>
+
+        <label style="margin-top:12px">每日簽到獎勵 EP</label>
+        <input id="daily-ep" type="number" min="0" value="3" />
+
+        <div class="control-buttons">
+          <button class="btn-secondary" id="btn-refresh">重新讀取</button>
+          <button class="btn-primary" id="btn-save">儲存設定</button>
+        </div>
+        <div class="message" id="save-msg" style="display:none"></div>
+      </div>
+    </div>
+
+    <div id="manage" class="tab-content">
+      <div class="setting-group">管理功能（待擴充）</div>
+    </div>
+
+    <div id="auto" class="tab-content">
+      <div class="setting-group">自動化（待擴充）</div>
+    </div>
+
+    <div id="logs" class="tab-content">
+      <div class="setting-group">日誌設定（待擴充）</div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
